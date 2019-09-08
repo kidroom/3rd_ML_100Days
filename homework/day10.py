@@ -38,9 +38,9 @@ estimator = LinearRegression()
 cross_val_score(estimator, train_X, train_Y, cv=5).mean()
 
 # 將 1stFlrSF 限制在你覺得適合的範圍內, 調整離群值
-"""
-Your Code Here
-"""
+df['1stFlrSF'] = df['1stFlrSF'].clip(450, 2250)
+sns.regplot(x = df['1stFlrSF'], y=train_Y)
+plt.show()
 
 # 做線性迴歸, 觀察分數
 train_X = MMEncoder.fit_transform(df)
@@ -48,9 +48,11 @@ estimator = LinearRegression()
 cross_val_score(estimator, train_X, train_Y, cv=5).mean()
 
 # 將 1stFlrSF 限制在你覺得適合的範圍內, 捨棄離群值
-"""
-Your Code Here
-"""
+keep_indexs = (df['1stFlrSF']> 450) & (df['1stFlrSF']< 2250)
+df = df[keep_indexs]
+train_Y = train_Y[keep_indexs]
+sns.regplot(x = df['1stFlrSF'], y=train_Y)
+plt.show()
 
 # 做線性迴歸, 觀察分數
 train_X = MMEncoder.fit_transform(df)
