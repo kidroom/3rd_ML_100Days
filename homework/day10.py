@@ -4,6 +4,8 @@ import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.model_selection import cross_val_score
 from sklearn.linear_model import LinearRegression
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 data_path = 'E:/data/'
 df_train = pd.read_csv(data_path + 'house_train.csv.gz')
@@ -27,8 +29,7 @@ train_num = train_Y.shape[0]
 df.head()
 
 # 顯示 1stFlrSF 與目標值的散佈圖
-import seaborn as sns
-import matplotlib.pyplot as plt
+
 sns.regplot(x = df['1stFlrSF'][:train_num], y=train_Y)
 plt.show()
 
