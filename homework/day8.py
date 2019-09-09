@@ -12,10 +12,10 @@ app_train = pd.read_csv(f_app_train)
 
 print(app_train.head())
 
-print(app_train[''].mean())
-print(np.std(app_train[''],ddof=1))
+print(app_train['AMT_INCOME_TOTAL'].mean())
+print(np.std(app_train['AMT_INCOME_TOTAL'],ddof=1))
 
 
-plt.hist(app_train[''])
+plt.hist(app_train['AMT_INCOME_TOTAL'])
 plt.show()
 
