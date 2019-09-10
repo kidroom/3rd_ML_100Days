@@ -18,9 +18,9 @@ app_train['AMT_ANNUITY'].describe()
 
 # 1: 計算 AMT_ANNUITY 的 q0 - q100
 i=0
-q_all = [np.percentile(app_train[~app_train['AMT_ANNUITY'].isnull()]['AMT_ANNUITY'], q = i) for i in 100]
+q_all = [np.percentile(app_train[~app_train['AMT_ANNUITY'].isnull()]['AMT_ANNUITY'], q = i) for i in range(100)]
 
-pd.DataFrame({'q': list(range(101)),
+pd.DataFrame({'q': list(range(100)),
               'value': q_all})
 
 print(q_all)
@@ -73,7 +73,7 @@ print("Before replace NAs, numbers of row that AMT_GOODS_PRICE is NAs: %i" % sum
 
 # 列出重複最多的數值
 value_most = mode(app_train[~app_train['AMT_ANNUITY'].isnull()]['AMT_ANNUITY'])
-print(value_most)
+print(f'眾數 : {value_most}')
 
 mode_goods_price = list(app_train['AMT_GOODS_PRICE'].value_counts().index)
 app_train.loc[app_train['AMT_GOODS_PRICE'].isnull(), 'AMT_GOODS_PRICE'] = mode_goods_price[0]
