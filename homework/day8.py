@@ -13,9 +13,9 @@ df = pd.DataFrame(app_train)
 
 print(app_train.head())
 
-print(app_train['AMT_ANNUITY'].mean())
-print(np.std(app_train['AMT_ANNUITY'],ddof=1))
+print(app_train['AMT_GOODS_PRICE'].mean())
+print(np.std(app_train['AMT_GOODS_PRICE'],ddof=1))
 
-plt.hist(app_train['AMT_ANNUITY'])
+plt.hist(app_train['AMT_GOODS_PRICE'])
 plt.show()
 
