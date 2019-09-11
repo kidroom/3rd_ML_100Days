@@ -60,4 +60,4 @@ train_X = MMEncoder.fit_transform(df)
 estimator = LinearRegression()
 cross_val_score(estimator, train_X, train_Y, cv=5).mean()
 
-print('我覺得捨去離群值是更加精準的，畢竟我們不確定離群值的資料是失誤輸入，還是真的偏大')
+print('我覺得捨去離群值是更加精準的，畢竟我們不確定離群值的資料是失誤輸入，還是真的數值')
