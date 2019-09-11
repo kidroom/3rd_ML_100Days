@@ -32,7 +32,6 @@ print("Before replace NAs, numbers of row that AMT_ANNUITY is NAs: %i" % sum(app
 
 q_50 = np.percentile(app_train[~app_train['AMT_ANNUITY'].isnull()]['AMT_ANNUITY'], q = i)
 app_train.loc[app_train['AMT_ANNUITY'].isnull(),'AMT_ANNUITY'] = q_50
-
 print("After replace NAs, numbers of row that AMT_ANNUITY is NAs: %i" % sum(app_train['AMT_ANNUITY'].isnull()))
 
 # 2.2 Normalize values to -1 to 1
