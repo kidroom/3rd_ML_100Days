@@ -18,10 +18,11 @@ plt.scatter(x, y)
 x = np.random.randint(0, 50, 1000)
 
 # 這次讓 y 與 x 正相關，再增加一些雜訊
-y = x + np.random.normal(0, 10, 1000)
+y = np.random.normal(0, 10, 1000) - x
 
 # 再次用 numpy 裡的函數來計算相關係數
 np.corrcoef(x, y)
 
 # 再看看正相關的 x,y 分布
 plt.scatter(x, y)
+plt.show()
