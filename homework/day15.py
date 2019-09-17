@@ -3,6 +3,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import heapq
 
 # 設定 data_path
 dir_data = 'E:/data/'
@@ -34,4 +35,6 @@ app_train['DAYS_EMPLOYED'].replace({365243: np.nan}, inplace = True)
 app_train['DAYS_BIRTH'] = abs(app_train['DAYS_BIRTH'])
 
 # 觀察相關係數
-app_train.corr()['TARGET'].sort()
+cor = app_train.corr()['TARGET']
+print(map(cor.index, heapq.nlargest(15, cor)))
+print(map(cor.index, heapq.nsmallest(15, cor)))
